@@ -31,7 +31,9 @@ public class Course {
     )
     @JsonIgnore
     private List<Student> students;
-
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Quiz> quizzes;
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Enrollment> enrollments;
